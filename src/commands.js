@@ -5,17 +5,17 @@ module.exports = {
     const date = new Date();
     const timezone = new Date(date.toLocaleString('en-US', { timeZone: process.env.TIMEZONE }));
     const hour = timezone.getHours();
-    let saludo;
+    let greeting;
 
     if (hour >= 6 && hour < 12) {
-      saludo = 'Hola, Buenos días!';
+      greeting = 'Hola, Buenos días!';
     } else if (hour >= 12 && hour < 18) {
-      saludo = 'Hola, Buenas tardes!';
+      greeting = 'Hola, Buenas tardes!';
     } else {
-      saludo = 'Hola, Buenas noches!';
+      greeting = 'Hola, Buenas noches!';
     }
 
-    message.reply(`${saludo}`);
+    message.reply(`${greeting}`);
   }, // Este validador hace que si es mañana, tarde o noche responda dependiendo.
   hello: (message) => {
     message.reply('Hello World~!');
