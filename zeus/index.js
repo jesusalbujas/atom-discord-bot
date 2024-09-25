@@ -1,32 +1,33 @@
 const { Client, Events } = require('discord.js');
-
+const { ready, clientReady } = require('./events');
+const commands = require('./commands');
 require('dotenv').config();
 
-// Cantidad de Permisos
 const client = new Client({ 
   intents: 3276799 // permiso a todo
 });
 
-// Eventos
-client.on(Events.ClientReady, async () => {
-    console.log(`Connect is ${client.user.username}!`) // cuando este conectado indique el nombre del bot
-})
-
-// Mensaje para saber que el bot está listo
-client.once('ready', () => {
-  console.log('The Discord Bot is Ready!');
+client.once('ready', async () => {
+  await clientReady(client); // esperar que el cliente este listo / Await the clientReady function
+  ready();
 });
 
-// respuestas a mensajes
-client.on('messageCreate', message => {
+// Comandos
+client.on('messageCreate', (message) => {
+
+  if (message.author.bot) return; // El bot no se responderá a si mismo / Prevent the bot from responding to its own messages
+
   if (message.content.toLowerCase() === 'hello') {
-    message.reply('Hello World~!');
+    commands.hello(message);
   }
   if (message.content.toLowerCase() === 'testbot') {
-    message.reply("Hi! I'm up and Running~!");
+    commands.testbot(message);
   }
   if (message.content.toLowerCase() === 'ping') {
-    message.reply('Pong~!');
+    commands.ping(message);
+  } 
+  if (message.content.toLowerCase().includes('buenas' && 'ayuda')) {
+    commands.replybuenas(message); // Si alguien dice cualquier frase que incluya buenas el bot responderá.
   } 
 });
 
