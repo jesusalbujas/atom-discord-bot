@@ -4,10 +4,10 @@ require('dotenv').config();
 
 // Cantidad de Permisos
 const client = new Client({ 
-  intents: 3276799 //todos
+  intents: 3276799 // permiso a todo
 });
 
-// Mi evento
+// Eventos
 client.on(Events.ClientReady, async () => {
     console.log(`Connect is ${client.user.username}!`) // cuando este conectado indique el nombre del bot
 })
