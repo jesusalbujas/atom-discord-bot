@@ -1,22 +1,33 @@
-const { Client, GatewayIntentBits } = require('discord.js');
+const { Client, Events } = require('discord.js');
+
+require('dotenv').config();
+
+// Cantidad de Permisos
 const client = new Client({ 
-  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages] 
+  intents: 3276799 //todos
 });
 
-client.on('messageCreate', message => {
-  if (message.content === 'hello') {
-    message.channel.send('Hello World~!');
-  }
-  if (message.content === 'testbot') {
-    message.channel.send("Hi! I'm up and Running~!");
-  }
-  if (message.content === 'ping') {
-    message.channel.send('Pong~!');
-  } 
-});
+// Mi evento
+client.on(Events.ClientReady, async () => {
+    console.log(`Connect is ${client.user.username}!`) // cuando este conectado indique el nombre del bot
+})
 
+// Mensaje para saber que el bot está listo
 client.once('ready', () => {
   console.log('The Discord Bot is Ready!');
 });
 
-client.login('MTI4ODUzODExMTA5MzExMjg5Mw.GRuMq6.XaA7FE_0nPINOZdKtyFzuLspItAXv_j5MQsRMs');
+// respuestas a mensajes
+client.on('messageCreate', message => {
+  if (message.content.toLowerCase() === 'hello') {
+    message.reply('Hello World~!');
+  }
+  if (message.content.toLowerCase() === 'testbot') {
+    message.reply("Hi! I'm up and Running~!");
+  }
+  if (message.content.toLowerCase() === 'ping') {
+    message.reply('Pong~!');
+  } 
+});
+
+client.login(process.env.DISCORD_TOKEN);
