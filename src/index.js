@@ -26,7 +26,7 @@ client.on('messageCreate', (message) => {
   if (message.content.toLowerCase() === 'ping') {
     commands.ping(message);
   } 
-  if (message.content.toLowerCase().includes('buenas' && 'ayuda')) {
+  if (message.content.toLowerCase().includes('buenas')) {
     commands.replybuenas(message); // Si alguien dice cualquier frase que incluya buenas el bot responderá.
   } 
 });
