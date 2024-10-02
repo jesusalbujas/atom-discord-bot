@@ -10,8 +10,8 @@
     "type": "git",
     "url": "git+https://github.com/jesusalbujas/atom-discord-bot.git"
   },
-  "author": "jesusalbujas",
-  "license": "ISC",
+  "author": "Jesús Albujas",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jesusalbujas/atom-discord-bot/issues"
   },
