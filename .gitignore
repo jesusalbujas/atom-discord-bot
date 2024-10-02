@@ -1,0 +1,38 @@
+# Node.js dependencies
+node_modules/
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+package-lock.json
+
+# Local environment variables
+.env
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.tgz
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# IDE and editor specific files
+.vscode/
+.idea/
+*.swp
+
+# Build output
+dist/
+build/
+out/
+
+# OS specific files
+.DS_Store
+Thumbs.db
