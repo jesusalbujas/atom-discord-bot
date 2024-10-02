@@ -2,7 +2,7 @@
 FROM node:20
 
 # Create a directory for your application
-WORKDIR /usr/src/
+WORKDIR /usr/src/app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package.json package-lock.json ./
@@ -11,7 +11,7 @@ COPY package.json package-lock.json ./
 RUN npm install
 
 # Copy the rest of the application code into the working directory
-COPY . .
+COPY src ./src
 
 # Start the bot
 CMD ["node", "src/index.js"]
