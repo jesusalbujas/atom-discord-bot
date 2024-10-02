@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jesusalbujas/bot-discord.git"
+    "url": "git+https://github.com/jesusalbujas/atom-discord-bot.git"
   },
   "author": "jesusalbujas",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jesusalbujas/bot-discord/issues"
+    "url": "https://github.com/jesusalbujas/atom-discord-bot/issues"
   },
-  "homepage": "https://github.com/jesusalbujas/bot-discord#readme",
+  "homepage": "https://github.com/jesusalbujas/atom-discord-bot#readme",
   "dependencies": {
     "discord.js": "14.16.2",
     "dotenv": "16.4.5",
-    "write-excel-file": "^2.0.10",
+    "write-excel-file": "2.0.10",
     "xlsx": "0.18.5"
   }
 }
