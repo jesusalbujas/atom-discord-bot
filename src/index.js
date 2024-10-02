@@ -17,18 +17,12 @@ client.on('messageCreate', (message) => {
 
   if (message.author.bot) return; // El bot no se responderá a si mismo / Prevent the bot from responding to its own messages
 
-  if (message.content.toLowerCase() === 'hello') {
-    commands.hello(message);
-  }
-  if (message.content.toLowerCase() === 'testbot') {
-    commands.testbot(message);
-  }
-  if (message.content.toLowerCase() === 'ping') {
-    commands.ping(message);
-  } 
   if (message.content.toLowerCase().includes('buenas')) {
     commands.replybuenas(message); // Si alguien dice cualquier frase que incluya buenas el bot responderá.
-  } 
+  }
+  if (message.content.toLowerCase().includes('hilos abiertos')) {
+    commands.getThreads(message); // Obtener los hilos abiertos
+  }
 });
 
 client.login(process.env.DISCORD_TOKEN);

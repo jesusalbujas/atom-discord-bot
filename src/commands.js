@@ -8,22 +8,16 @@ module.exports = {
     let greeting;
 
     if (hour >= 6 && hour < 12) {
-      greeting = 'Hola, Buenos días!';
+      greeting = 'Hola, buenos días!';
     } else if (hour >= 12 && hour < 18) {
-      greeting = 'Hola, Buenas tardes!';
+      greeting = 'Hola, buenas tardes!';
     } else {
-      greeting = 'Hola, Buenas noches!';
+      greeting = 'Hola, buenas noches!';
     }
 
     message.reply(`${greeting}`);
   }, // Este validador hace que si es mañana, tarde o noche responda dependiendo.
-  hello: (message) => {
-    message.reply('Hello World~!');
-  },
-  testbot: (message) => {
-    message.reply("Queloque");
-  },
-  ping: (message) => {
-    message.reply('Pong~!');
+  getThreads: (message) => {
+    require('./getThreads')(message); // Importar la función getThreads
   }
 };

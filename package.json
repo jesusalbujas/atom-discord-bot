@@ -18,6 +18,8 @@
   "homepage": "https://github.com/jesusalbujas/bot-discord#readme",
   "dependencies": {
     "discord.js": "14.16.2",
-    "dotenv": "16.4.5"
+    "dotenv": "16.4.5",
+    "write-excel-file": "^2.0.10",
+    "xlsx": "0.18.5"
   }
 }
