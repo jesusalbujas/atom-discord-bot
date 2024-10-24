@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/jesusalbujas/atom-discord-bot#readme",
   "dependencies": {
+    "@discordjs/rest": "^2.4.0",
+    "discord-api-types": "^0.37.103",
     "discord.js": "14.16.2",
     "dotenv": "16.4.5",
     "write-excel-file": "2.0.10",

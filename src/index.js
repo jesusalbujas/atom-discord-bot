@@ -16,19 +16,16 @@
 
 const { Client } = require('discord.js');
 const { clientReady } = require('./events/events');
-const messageListener = require('./messageListener'); // Importar el manejador de mensajes
+const { slashCommands } = require('./commands/slashCommands'); // Importar el registro de comandos
+const slashCommandListener = require('./commands/slashCommandListener');
 require('dotenv').config();
 
-const client = new Client({ 
-  intents: 3276799 // permiso a todo
-});
+const client = new Client({ intents: 3276799 });
 
-// Evento cuando el cliente está listo
 client.once('ready', async () => {
-  await clientReady(client); // esperar que el cliente esté listo
-  
-  messageListener(client); // Llamar a la función para manejar mensajes
+  await clientReady(client);
+  await slashCommands(); // Registrar comandos slash (/)
+  slashCommandListener(client);
 });
 
-// Iniciar sesión en el bot
 client.login(process.env.DISCORD_TOKEN);
