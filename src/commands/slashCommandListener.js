@@ -22,12 +22,20 @@ const slashCommandListener = (client) => {
       const solicitante = options.getUser('solicitante');
       const motivo = options.getString('motivo');
 
-      // Verificar permisos (si es necesario)
+      // Verificar roles (si es necesario)
       if (!permissions.hasRequiredRole(interaction)) {
         return await interaction.reply({
           content: 'No tienes permisos suficientes ejecutar este comando.',
           ephemeral: true, // Mensaje efímero
         });
+      }
+
+      // Verificar si el canal está dentro del permitido.
+      if (!permissions.isCommandInAllowedChannel(interaction)) {
+        return await interaction.reply({
+          content: 'Este canal no tiene permisos suficientes para ejecutar este comando.',
+          ephemeral: true // Mensaje efímero
+        })
       }
       
       // Verificar si el comando se ejecuta desde un hilo
