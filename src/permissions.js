@@ -22,19 +22,29 @@ hasRequiredRole: (message) => {
     const channelsToSend = process.env.CHANNEL_TO_SEND
       ? process.env.CHANNEL_TO_SEND.split(',').map(channel => channel.trim())
       : [];
-
-    return channelsToSend.includes(message.channel.name);
+  
+  // Si no hay canales definidos, permite cualquier canal.
+  if (channelsToSend.length === 0) {
+    return true; // Permitir todos los canales
+  }
+    
+  return channelsToSend.includes(message.channel.name);
+  
   },
 
-  // Verificar si el comando se ejecuta desde un hilo
+
+// Verificar si el comando se ejecuta desde un hilo 
+  
   isCommandFromThread: (message) => {
     return message.channel.isThread();
   },
 
-  // Verificar los canales desde los cuales se puede ejecutar el comando
-  getChannelsToCheck: () => {
-    return process.env.CHANNELS_TO_CHECK
-      ? process.env.CHANNELS_TO_CHECK.split(',').map(channel => channel.trim())
-      : ['ALL'];
-  }
+//
+// // Verificar los canales desde los cuales se puede ejecutar el comando 
+//
+//   getChannelsToCheck: () => {
+//     return process.env.CHANNELS_TO_CHECK
+//       ? process.env.CHANNELS_TO_CHECK.split(',').map(channel => channel.trim())
+//       : ['ALL'];
+//   }
 };
